@@ -1,0 +1,16 @@
+[
+  {
+    "text": "比赛开始，双方迅速进入对抗。",
+    "startMs": 5000,
+    "endMs": 8500,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "球进了！",
+    "startMs": 65000,
+    "endMs": 68000,
+    "timestampMs": null,
+    "confidence": null
+  }
+]
