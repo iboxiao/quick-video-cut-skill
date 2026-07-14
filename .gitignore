@@ -9,6 +9,10 @@
 *.aac
 *.m4a
 *.srt
+*.vtt
+*.part
+*.part-*
+*.info.json
 
 # Speech-recognition models and local binaries
 *.bin
@@ -27,6 +31,8 @@ dist/
 .env
 .env.*
 !.env.example
+cookies.txt
+*cookies*.txt
 
 # Operating-system files
 .DS_Store

@@ -1,4 +1,4 @@
 interface:
   display_name: "Football Highlight Editor"
-  short_description: "Create football recaps, Chinese captions, and two covers"
-  default_prompt: "Use $edit-football-highlights to turn my match footage into a polished recap with Chinese captions plus 3:4 and 4:3 cover art."
+  short_description: "Create football recaps, captions, covers, and social copy"
+  default_prompt: "Use $edit-football-highlights to turn a local file or public match URL into a Chinese-captioned recap with two covers and ready-to-post social copy."

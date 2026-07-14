@@ -1,6 +1,6 @@
 ---
 name: edit-football-highlights
-description: Create polished football/soccer match highlight videos and cover art from local footage using FFmpeg for analysis and Remotion for the creative timeline, with event selection, historical-documentary packaging, original commentary, local Whisper transcription, Chinese translation subtitles, 3:4 and 4:3 cover images, visual QA, and master/share exports. Use whenever Codex is asked to cut a football match, make a match recap or World Cup history video, translate old English commentary for Chinese viewers, add burned-in Chinese captions, generate football thumbnails or covers, or turn one or more match videos into finished media without requiring the user to operate an editor.
+description: Create polished football/soccer match recap videos from local footage or a user-supplied public video URL, using yt-dlp for authorized acquisition, FFmpeg for analysis, and Remotion for the creative timeline. Includes event selection, historical-documentary packaging, original commentary, Chinese translation subtitles, 3:4 and 4:3 covers, master/share exports, and Chinese social publishing copy with a formatted title, summary, and five player hashtags. Use whenever Codex is asked to download and cut a football match, make a match recap or World Cup/Euro history video, translate English commentary for Chinese viewers, add burned-in Chinese captions, generate football thumbnails or social titles, or independently turn match footage into finished media.
 ---
 
 # Edit Football Highlights
@@ -27,6 +27,7 @@ When the user does not specify otherwise, make a 16:9 historical-documentary rec
 - burned-in Simplified Chinese subtitles when the audience is Chinese or the established series uses them
 - H.264/AAC high-quality master plus a smaller share version
 - 1200×1600 (3:4) vertical and 1600×1200 (4:3) horizontal covers for a recurring social series
+- a Chinese publishing package: formatted main title, one-paragraph summary, and exactly five player hashtags
 
 Use reasonable judgment instead of blocking on stylistic questions. Ask only when the requested platform, aspect ratio, or language would materially change the result.
 
@@ -41,6 +42,16 @@ Read [references/fast-workflow.md](references/fast-workflow.md) before starting.
 When the user says “same as before,” “next chapter,” or similar, preserve the established series title style, Chinese subtitle treatment, and both cover aspect ratios unless explicitly changed.
 
 ## Workflow
+
+### 0. Acquire a public source when the user supplies a URL
+
+Read [references/source-acquisition.md](references/source-acquisition.md), then:
+
+1. Use the user's supplied cookies only for the requested download and never print, copy, or commit them.
+2. Save metadata and automatic English captions when available.
+3. Download only the quality needed by the final composition; 720p is sufficient for a 1280×720 master unless the user requests higher resolution.
+4. If the exact URL is unavailable, explain the reason and use a legitimate public upload of the same match only after verifying teams, year, competition, and content.
+5. Preserve the acquired source under `analysis/media/`; keep only the normalized editing base in `public/`.
 
 ### 1. Inventory and protect the footage
 
@@ -135,6 +146,16 @@ Inspect each image with `view_image`. Fix overlap, unreadable text, bad wrapping
 4. Deliver clickable paths for the share version, master, editable project, and optionally SRT.
 5. Do not call the job complete until the final MP4 exists and metadata checks pass.
 
+### 9. Generate the social publishing package
+
+Read [references/social-publishing.md](references/social-publishing.md) after the match facts and final score have been verified. Deliver:
+
+1. a main title in the user's requested structure;
+2. one concise Chinese summary paragraph covering the score arc, decisive moments, and significance;
+3. exactly five major-player topics, each beginning with `#`.
+
+Keep the publishing copy separate from technical delivery notes so the user can copy it directly.
+
 ## Bundled resources
 
 - `references/editorial-workflow.md`: event selection, pacing, and historical-match story structure.
@@ -142,6 +163,8 @@ Inspect each image with `view_image`. Fix overlap, unreadable text, bad wrapping
 - `references/subtitle-workflow.md`: local Whisper setup, Chinese translation, timing, and layout.
 - `references/remotion-implementation.md`: project structure, version pinning, timeline patterns, and render commands.
 - `references/cover-workflow.md`: frame selection, cover hierarchy, aspect ratios, and still-render QA.
+- `references/source-acquisition.md`: yt-dlp, supplied cookies, automatic captions, unavailable-link fallback, and source hygiene.
+- `references/social-publishing.md`: verified Chinese title, summary, and five-player hashtag format.
 - `scripts/build-contact-sheet.ps1`: Windows contact-sheet generator.
 - `scripts/validate-captions.mjs`: Caption JSON integrity and readability checks.
 - `scripts/captions-to-srt.mjs`: convert Caption JSON to an editable `.srt` file.
